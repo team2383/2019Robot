@@ -50,9 +50,10 @@ public class SnakeLime extends Command {
       HAL.drive.arcade(-0.5, turn);
       */
       
-    
+      // OFFSET NEGATIVE IS TO THE LEFT
+      // OFFSET POSITIVE IS TO THE RIGHT
       if((area > 0.001) && (area <= minArea)){
-        HAL.drive.arcade(-0.5, -(xOffset-4)/27); //xOffset+1.0) //COMP is -2
+        HAL.drive.arcade(-0.5, -(xOffset+3.25)/27); //xOffset+1.0) //COMP is -2
       }
       
       else if(kill && area <= minArea){
@@ -63,7 +64,7 @@ public class SnakeLime extends Command {
 
       else if((area > 0.001) && (area <= 1.0)){
         kill = true;
-        HAL.drive.arcade(-0.5, -(xOffset-4)/27); //xOffset+1.0) //COMP is -2
+        HAL.drive.arcade(-0.5, -(xOffset+3.25)/27); //xOffset+1.0) //COMP is -2
       }
 
       else if ((area > 1.0) && (area <= 1.6)){
