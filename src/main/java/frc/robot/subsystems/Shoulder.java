@@ -108,7 +108,7 @@ public class Shoulder extends Subsystem {
     shoulder.config_kF(0, 4.55, timeout);
     shoulder.config_IntegralZone(0, 0, timeout);
 
-    shoulder.configMotionAcceleration(400, timeout); //was 400
+    shoulder.configMotionAcceleration(300, timeout); //was 400
     shoulder.configMotionCruiseVelocity(200, timeout); //was 400
     shoulder.setNeutralMode(NeutralMode.Brake);
 
