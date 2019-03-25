@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.HAL;
 import frc.robot.commands.SwitchPipeline;
+import frc.robot.subsystems.Shoulder;
+import frc.robot.subsystems.Wrist;
 
 public class SnakeLime extends Command {
   boolean kill;
@@ -31,7 +33,8 @@ public class SnakeLime extends Command {
     double xOffset = HAL.limelight.xOffset();
     double turPos = HAL.turret.getCurrentPosition();
     double area = HAL.limelight.area();
-    double minArea = 1.0;
+    boolean isTarget = HAL.limelight.hasTargets();
+    double minArea = 1.7;
     if(area <= 0.01){
       HAL.limelight.setPipeline(6);
       area = HAL.limelight.area();
@@ -52,8 +55,8 @@ public class SnakeLime extends Command {
       
       // OFFSET NEGATIVE IS TO THE LEFT
       // OFFSET POSITIVE IS TO THE RIGHT
-      if((area > 0.001) && (area <= minArea)){
-        HAL.drive.arcade(-0.5, -(xOffset+3.25)/27); //xOffset+1.0) //COMP is -2
+      if((area > 0.001) && (area <= 1.4)){
+        HAL.drive.arcade(-0.5, -(xOffset+1.5)/28); //xOffset+1.0) //COMP is -2
       }
       
       else if(kill && area <= minArea){
@@ -62,15 +65,28 @@ public class SnakeLime extends Command {
         end();
       }
 
-      else if((area > 0.001) && (area <= 1.0)){
+      else if((area > 0.001) && (area <= 1.4)){
         kill = true;
-        HAL.drive.arcade(-0.5, -(xOffset+3.25)/27); //xOffset+1.0) //COMP is -2
+        HAL.drive.arcade(-0.5, -(xOffset+1.5)/28); //xOffset+1.0) //COMP is -2
       }
 
-      else if ((area > 1.0) && (area <= 1.6)){
-        //HAL.turret.turret.set(ControlMode.PercentOutput, ((HAL.limelight.xOffset())/27));
+      // else if ((isTarget == false)){
+      //   //HAL.shoulder.setPosition(Shoulder.ShoulderPreset.FEEDER_STATION_HATCH);
+      //   //HAL.wrist.setPosition(Wrist.WristPreset.FEEDER_STATION_HATCH);
+      //   HAL.drive.arcade(-0.3, 0);
+      // }
+
+      else if ((area > 1.4) && (area <= 5)){
+        HAL.turret.turret.set(ControlMode.PercentOutput, ((HAL.limelight.xOffset())/27));
+
+        //int curTurPos = HAL.turret.getCurrentPosition();
+        //HAL.turret.setPosition(curTurPos);
         HAL.drive.leftMaster.set(0.0);
         HAL.drive.rightMaster.set(0.0);
+          if (xOffset > -1 && xOffset < 1){
+            int curTurPos = HAL.turret.getCurrentPosition();
+            HAL.turret.setPosition(curTurPos);
+          }
       }
 
       else {

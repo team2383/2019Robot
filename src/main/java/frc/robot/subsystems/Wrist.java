@@ -33,6 +33,7 @@ public class Wrist extends Subsystem {
 
     PLACE_TRAVEL(1860),
 
+    GROUND2TRAVEL(1200),
     GROUND_BALL(1344), // was 1840-80-130-150 
     GROUND_HATCH(0),
 
@@ -92,7 +93,7 @@ public class Wrist extends Subsystem {
     wrist.config_kD(0, 1.0, timeout);
     wrist.config_kF(0, 2.62, timeout);
 
-    wrist.configMotionAcceleration(600, timeout);
+    wrist.configMotionAcceleration(400, timeout);
     wrist.configMotionCruiseVelocity(300, timeout); 
     wrist.setNeutralMode(NeutralMode.Brake);
 

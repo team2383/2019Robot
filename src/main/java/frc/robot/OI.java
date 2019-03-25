@@ -63,9 +63,7 @@ public class OI {
   public static ButtonBoard buttonBoardA = new ButtonBoard(1);
   public static ButtonBoard buttonBoardB = new ButtonBoard(2);
 
-  //visionTurret
-  public static Button hatchFeederStation = new JoystickButton(buttonBoardA, 10);
-  public static Button visionTurret = new JoystickButton(buttonBoardA, 9);
+  
 
   ////////////////////////////
   // OLD LAMBDA BUTTONBOARD //
@@ -103,23 +101,12 @@ public class OI {
   //////////////////////////////
   // NEW SCORPION BUTTONBOARD //
   //////////////////////////////
-  
+  //visionTurret
+  public static Button hatchFeederStation = new JoystickButton(buttonBoardA, 10);
+  public static Button visionTurret = new JoystickButton(buttonBoardA, 9);
+
   Button ballFeedGround = new JoystickButton(buttonBoardA, 1);
-  //Button iCanWriteWhateverTheFuckIWant = new JoystickButton(buttonBoardA, 1);
 
-  // OLD METHOD //
-  // Button lowBallRocket = new JoystickButton(buttonBoardB, 3);
-  // Button midBallRocket = new JoystickButton(buttonBoardB, 6);
-  // Button highBallRocket = new JoystickButton(buttonBoardB, 5);
-
-  // Button lowHatchRocket = new JoystickButton(buttonBoardB, 7);
-  // Button midHatchRocket = new JoystickButton(buttonBoardB, 11);
-  // Button highHatchRocket = new JoystickButton(buttonBoardB, 12);
-  
-  // Button cargoshipBall = new JoystickButton(buttonBoardB, 8);
-  // Button cargoshipHatch = new JoystickButton(buttonBoardB, 9);
-
-  // STAGGERED METHOD // 
   Button lowBallRocketStag = new JoystickButton(buttonBoardB, 3);
   Button midBallRocketStag = new JoystickButton(buttonBoardB, 6);
   Button highBallRocketStag = new JoystickButton(buttonBoardB, 5);
@@ -129,40 +116,84 @@ public class OI {
   Button highHatchRocketStag = new JoystickButton(buttonBoardB, 12);
   
   Button cargoshipBallStag = new JoystickButton(buttonBoardB, 8);
+  Button cargoshipHatchStag = new JoystickButton(buttonBoardA, 9);
+  
 
   Button travelPosition = new JoystickButton(buttonBoardA, 12);
-  Button hatchGrab = new JoystickButton(buttonBoardB, 10);
-  Button hatchRelease = new JoystickButton(buttonBoardA, 11);
+  Button hatchGrab = new JoystickButton(buttonBoardA, 11);
+  Button hatchRelease = new JoystickButton(buttonBoardA, 2);
 
   Button turretFront = new JoystickButton(buttonBoardA, 7);
   Button turretBack = new JoystickButton(buttonBoardA, 8);
   Button turretRight = new JoystickButton(buttonBoardA, 6);
   Button turretLeft = new JoystickButton(buttonBoardA, 5);
   
-  Button turretRocketRightBack = new JoystickButton(buttonBoardB, 9);
-
-
-  Button anyTurret = new CustomButton(() -> {
-    return turretFront.get() || turretBack.get() || turretRight.get() || turretLeft.get();
-  });
+  // Button turretRocketRightBack = new JoystickButton(buttonBoardB, 9);
 
   Button frontClimbHome = new JoystickButton(buttonBoardA, 3);
-  Button frontClimbPass = new JoystickButton(buttonBoardB, 2); //should be B2
-  Button frontClimbGround = new JoystickButton(buttonBoardA, 2);
+  Button frontClimbPassLvl_3 = new JoystickButton(buttonBoardB, 2); //should be B2
+  Button frontClimbPassLvl_2 = new JoystickButton(buttonBoardB, 9); //should be B2
+
+  // Button frontClimbGround = new JoystickButton(buttonBoardA, 2);
 
   
-  Button climbAuto = new JoystickButton(buttonBoardB, 4);
+  Button climbAutoLvl_3 = new JoystickButton(buttonBoardB, 4);
+  Button climbAutoLvl_2 = new JoystickButton(buttonBoardB, 10);
   Button climbStop = new JoystickButton(buttonBoardB, 1);
 
-  Button transfer = new JoystickButton(buttonBoardA, 4); //should be A4
+  Button turretZero = new JoystickButton(buttonBoardA, 4); //should be A4
+  
+    Button anyTurret = new CustomButton(() -> {
+      return turretFront.get() || turretBack.get() || turretRight.get() || turretLeft.get();
+    });
 
+  ///////////////////
+  // BUTONBOARD V1 //
+  ///////////////////
 
-  public static DoubleSupplier turret = () -> -buttonBoardA.getX()/7;
-  public static DoubleSupplier elevator = () -> buttonBoardA.getY();
+  // Button ballFeedGround = new JoystickButton(buttonBoardA, 1);
+ 
+  // Button lowBallRocketStag = new JoystickButton(buttonBoardB, 3);
+  // Button midBallRocketStag = new JoystickButton(buttonBoardB, 6);
+  // Button highBallRocketStag = new JoystickButton(buttonBoardB, 5);
+
+  // Button lowHatchRocketStag = new JoystickButton(buttonBoardB, 7);
+  // Button midHatchRocketStag = new JoystickButton(buttonBoardB, 11);
+  // Button highHatchRocketStag = new JoystickButton(buttonBoardB, 12);
+  
+  // Button cargoshipBallStag = new JoystickButton(buttonBoardB, 8);
+
+  // Button travelPosition = new JoystickButton(buttonBoardA, 12);
+  // Button hatchGrab = new JoystickButton(buttonBoardB, 10);
+  // Button hatchRelease = new JoystickButton(buttonBoardA, 11);
+
+  // Button turretFront = new JoystickButton(buttonBoardA, 7);
+  // Button turretBack = new JoystickButton(buttonBoardA, 8);
+  // Button turretRight = new JoystickButton(buttonBoardA, 6);
+  // Button turretLeft = new JoystickButton(buttonBoardA, 5);
+  
+  // Button turretRocketRightBack = new JoystickButton(buttonBoardB, 9);
+
+  // Button frontClimbHome = new JoystickButton(buttonBoardA, 3);
+  // Button frontClimbPass = new JoystickButton(buttonBoardB, 2); //should be B2
+  // Button frontClimbGround = new JoystickButton(buttonBoardA, 2);
+
+  
+  // Button climbAuto = new JoystickButton(buttonBoardB, 4);
+  // Button climbStop = new JoystickButton(buttonBoardB, 1);
+
+  // Button transfer = new JoystickButton(buttonBoardA, 4); //should be A4
+
+  // Button anyTurret = new CustomButton(() -> {
+  //   return turretFront.get() || turretBack.get() || turretRight.get() || turretLeft.get();
+  // });
+
 
   ////////////////////////////
   // TESTING MANUAL CONTROL //
   ////////////////////////////
+  public static DoubleSupplier turret = () -> -buttonBoardA.getX()/8;
+  public static DoubleSupplier elevator = () -> buttonBoardA.getY();
 
   public static Joystick turtleFront = new Joystick(4);
   public static Joystick turtleBack = new Joystick(3);
@@ -176,12 +207,6 @@ public class OI {
 
   public static Joystick wristControl = new Joystick(5);
   public static DoubleSupplier wrist = () -> (wristControl.getY());
-  
-  //public static DoubleSupplier frontClimber = () -> buttonBoardB.getY();
-  //public static Joystick elevatorControl = new Joystick(3);
-  //public static DoubleSupplier elevator = () -> (elevatorControl.getY());
-  // public static Joystick operatorStick = new Joystick(2);
-  // public static DoubleSupplier manualSpeed = () -> (operatorStick.getY());
 
   public OI() {
 
@@ -243,30 +268,30 @@ public class OI {
     midHatchRocketStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_MID_HATCH,Shoulder.ShoulderPreset.ROCKET_MID_HATCH,Elevator.ElevatorPreset.ROCKET_MID_HATCH));
     highHatchRocketStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_HIGH_HATCH,Shoulder.ShoulderPreset.ROCKET_HIGH_HATCH,Elevator.ElevatorPreset.ROCKET_HIGH_HATCH));
     
-    //cargoshipHatchStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_LOW_HATCH,Shoulder.ShoulderPreset.ROCKET_LOW_HATCH,Elevator.ElevatorPreset.ROCKET_LOW_HATCH));
+    cargoshipHatchStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.FEEDER_STATION_HATCH, Shoulder.ShoulderPreset.FEEDER_STATION_HATCH, Elevator.ElevatorPreset.FEEDER_STATION_HATCH));
     cargoshipBallStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.CARGOSHIP_BALL, Shoulder.ShoulderPreset.CARGOSHIP_BALL, Elevator.ElevatorPreset.CARGOSHIP_BALL));    
 
     // CLIMBER
     frontClimbHome.whenPressed(new SetFrontClimber(FrontClimber.FrontClimberPreset.HOME));
-    frontClimbGround.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,2));
-    frontClimbPass.whenPressed(new SetFrontClimber(FrontClimber.FrontClimberPreset.PASS));
+    //frontClimbGround.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,2));
+    frontClimbPassLvl_3.whenPressed(new SetFrontClimber(FrontClimber.FrontClimberPreset.PASS3));
 
     // TURRET
     turretFront.whileHeld(new SetTurret(Turret.TurretPreset.FRONT));
     turretRight.whileHeld(new SetTurret(Turret.TurretPreset.RIGHT));
     turretLeft.whileHeld(new SetTurret(Turret.TurretPreset.LEFT));
     turretBack.whileHeld(new SetTurret(Turret.TurretPreset.BACK));
-    turretRocketRightBack.whileHeld(new SetTurret(Turret.TurretPreset.RIGHT_ROCKET_BACK));
+    //turretRocketRightBack.whileHeld(new SetTurret(Turret.TurretPreset.RIGHT_ROCKET_BACK));
 
     anyTurret.whenReleased(new HoldTurret(OI.turret));
     
     // FRONT CLIMBER
-    transfer.whenPressed(new Zeros("turret"));
+    turretZero.whenPressed(new Zeros("turret"));
     //hatchToElevatorTransfer.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Shoulder.ShoulderPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Elevator.ElevatorPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER));
-    climbAuto.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,3));
+    climbAutoLvl_3.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,3));
+    climbAutoLvl_2.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,2));
     climbStop.whenPressed(new StopClimb());
 
-    //iCanWriteWhateverTheFuckIWant.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_MID_BALL,Shoulder.ShoulderPreset.ROCKET_MID_BALL,Elevator.ElevatorPreset.ROCKET_MID_BALL));
     // VISION
     visionLow.whileHeld(new SnakeLime());
 

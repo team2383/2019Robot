@@ -49,7 +49,7 @@ public class SetElevatorShoulderWrist extends Command {
     protected void execute() {
 		//when coming up from ground ball, flick the wrist up a bit before setting the desired pos.
 		if(HAL.shoulder.getCurrentPosition() < 75 && Spreset.shoulderPosition > 80) {
-			HAL.wrist.setPosition(WristPreset.FEEDER_STATION_HATCH); //WRIST parallel to SHOULDER
+			HAL.wrist.setPosition(WristPreset.GROUND2TRAVEL); //WRIST parallel to SHOULDER
 		} else {
 			HAL.wrist.setPosition(Wpreset);
 		}

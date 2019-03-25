@@ -59,7 +59,7 @@ public class Turret extends Subsystem{
     turret.config_kF(0, 0.08, timeout);
     turret.config_IntegralZone(0, 0, timeout);
 
-    turret.configMotionAcceleration(9000, timeout);
+    turret.configMotionAcceleration(4000, timeout);
     turret.configMotionCruiseVelocity(11000, timeout);
     turret.setNeutralMode(NeutralMode.Brake);
 

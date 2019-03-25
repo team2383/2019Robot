@@ -22,7 +22,7 @@ public class FrontClimber extends Subsystem{
 
   public static enum FrontClimberPreset {
     GROUND(2250),
-    PASS(1000), 
+    PASS3(1000), 
     TEST(400),
     HOME(1),
     AUTO_CLIMB(3477);

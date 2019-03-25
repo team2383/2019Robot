@@ -37,7 +37,7 @@ public class Transfer extends CommandGroup {
         //addSequential(HAL.hatch.setStateCommand(HatchPatchSubsystem.State.IN));
         
         // STEP 2
-        addParallel(new SetFrontClimber(FrontClimber.FrontClimberPreset.PASS));
+        addParallel(new SetFrontClimber(FrontClimber.FrontClimberPreset.PASS3));
         addSequential(HAL.hatchGroundIntake.setStateCommand(HatchGroundIntake.State.FEED, HatchGroundIntake.State.STOP, 1.5));
         
         // STEP 3
