@@ -34,7 +34,7 @@ public class SnakeLime extends Command {
     double turPos = HAL.turret.getCurrentPosition();
     double area = HAL.limelight.area();
     boolean isTarget = HAL.limelight.hasTargets();
-    double minArea = 1.7;
+    double minArea = 1.3;
     if(area <= 0.01){
       HAL.limelight.setPipeline(6);
       area = HAL.limelight.area();
@@ -65,7 +65,7 @@ public class SnakeLime extends Command {
         end();
       }
 
-      else if((area > 0.001) && (area <= 1.4)){
+      else if((area > 0.001) && (area <= minArea)){
         kill = true;
         HAL.drive.arcade(-0.5, -(xOffset+1.5)/28); //xOffset+1.0) //COMP is -2
       }
@@ -76,17 +76,21 @@ public class SnakeLime extends Command {
       //   HAL.drive.arcade(-0.3, 0);
       // }
 
-      else if ((area > 1.4) && (area <= 5)){
+      else if ((area > minArea) && (area <= 5)){
         HAL.turret.turret.set(ControlMode.PercentOutput, ((HAL.limelight.xOffset())/27));
 
         //int curTurPos = HAL.turret.getCurrentPosition();
         //HAL.turret.setPosition(curTurPos);
         HAL.drive.leftMaster.set(0.0);
         HAL.drive.rightMaster.set(0.0);
-          if (xOffset > -1 && xOffset < 1){
-            int curTurPos = HAL.turret.getCurrentPosition();
-            HAL.turret.setPosition(curTurPos);
-          }
+        if ((HAL.shoulder.getCurrentPosition() > 100) && (HAL.shoulder.getCurrentPosition() < 350)){
+          int curTurPos = HAL.turret.getCurrentPosition();
+          HAL.turret.setPosition(curTurPos);
+        }
+          // if (xOffset > -1 && xOffset < 1){
+          //   int curTurPos = HAL.turret.getCurrentPosition();
+          //   HAL.turret.setPosition(curTurPos);
+          // }
       }
 
       else {
@@ -130,13 +134,18 @@ public class SnakeLime extends Command {
     else if((kill == true) && (HAL.limelight.area() <= 1.0)){
       return true;
     }
+
+    // if (HAL.limelight.xOffset() > -1 && HAL.limelight.xOffset() > -1 && HAL.limelight.area() > 1.5){
+    //   return true;
+    // }
     return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    
+    // int turCurPos = HAL.turret.getCurrentPosition();
+    // HAL.turret.setPosition(turCurPos);
   }
 
   // Called when another command which requires one or more of the same

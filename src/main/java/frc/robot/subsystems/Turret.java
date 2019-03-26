@@ -100,6 +100,10 @@ public class Turret extends Subsystem{
     turret.set(ControlMode.MotionMagic, position.turretPosition);
   }
 
+  public void setPosition(int position){
+    turret.set(ControlMode.Position, position);
+  }
+
   public void setPosition(double tickPos){
     turret.set(ControlMode.MotionMagic, tickPos);
   }
