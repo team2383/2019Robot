@@ -44,15 +44,7 @@ public class SnakeLime extends Command {
     ////////////////////
     // FRONT POSITION //
     ////////////////////
-    if (turPos > -6000 && turPos < 6000) {
-
-      /*
-      //double drive = area * kDrive;
-      double turn = -(xOffset)/27 * kTurn;
-
-      HAL.drive.arcade(-0.5, turn);
-      */
-      
+    if (turPos > -6000 && turPos < 6000) {      
       // OFFSET NEGATIVE IS TO THE LEFT
       // OFFSET POSITIVE IS TO THE RIGHT
       if((area > 0.001) && (area <= 1.4)){
@@ -70,33 +62,19 @@ public class SnakeLime extends Command {
         HAL.drive.arcade(-0.5, -(xOffset+1.5)/28); //xOffset+1.0) //COMP is -2
       }
 
-      // else if ((isTarget == false)){
-      //   //HAL.shoulder.setPosition(Shoulder.ShoulderPreset.FEEDER_STATION_HATCH);
-      //   //HAL.wrist.setPosition(Wrist.WristPreset.FEEDER_STATION_HATCH);
-      //   HAL.drive.arcade(-0.3, 0);
-      // }
-
       else if ((area > minArea) && (area <= 5)){
         HAL.turret.turret.set(ControlMode.PercentOutput, ((HAL.limelight.xOffset())/27));
-
-        //int curTurPos = HAL.turret.getCurrentPosition();
-        //HAL.turret.setPosition(curTurPos);
         HAL.drive.leftMaster.set(0.0);
         HAL.drive.rightMaster.set(0.0);
         if ((HAL.shoulder.getCurrentPosition() > 100) && (HAL.shoulder.getCurrentPosition() < 350)){
           int curTurPos = HAL.turret.getCurrentPosition();
           HAL.turret.setPosition(curTurPos);
         }
-          // if (xOffset > -1 && xOffset < 1){
-          //   int curTurPos = HAL.turret.getCurrentPosition();
-          //   HAL.turret.setPosition(curTurPos);
-          // }
       }
-
+      
       else {
         HAL.drive.leftMaster.set(0.0);
         HAL.drive.rightMaster.set(0.0);
-        
         end();
       }
     } 
