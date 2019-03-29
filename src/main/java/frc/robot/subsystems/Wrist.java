@@ -34,7 +34,7 @@ public class Wrist extends Subsystem {
     PLACE_TRAVEL(1860),
 
     GROUND2TRAVEL(1200),
-    GROUND_BALL(1344), // was 1840-80-130-150 
+    GROUND_BALL(1344+160+180), // was 1840-80-130-150 
     GROUND_HATCH(0),
 
     FEEDER_STATION_BALL(900-20),

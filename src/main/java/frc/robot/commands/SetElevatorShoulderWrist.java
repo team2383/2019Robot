@@ -48,7 +48,7 @@ public class SetElevatorShoulderWrist extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 		//when coming up from ground ball, flick the wrist up a bit before setting the desired pos.
-		if(HAL.shoulder.getCurrentPosition() < 75 && Spreset.shoulderPosition > 80) {
+		if(HAL.shoulder.getCurrentPosition() < 120 && Spreset.shoulderPosition > 130) {
 			HAL.wrist.setPosition(WristPreset.GROUND2TRAVEL); //WRIST parallel to SHOULDER
 		} else {
 			HAL.wrist.setPosition(Wpreset);

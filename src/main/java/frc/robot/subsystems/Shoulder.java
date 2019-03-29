@@ -37,9 +37,9 @@ public class Shoulder extends Subsystem {
       //////////////////
       // COMP PRESETS //
       //////////////////
-      // DOWN IS MORE POSITIVE 
-      // UP IS MORE NEGATIVE
-        GROUND_BALL(0), //was 3745+180-220-180
+      // DOWN IS MORE POSITIVE  FAlse?
+      // UP IS MORE NEGATIVE 
+        GROUND_BALL(80), //was 3745+180-220-180
         GROUND_HATCH(0),
         TRAVEL(1218),
   

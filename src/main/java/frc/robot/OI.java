@@ -275,6 +275,7 @@ public class OI {
     frontClimbHome.whenPressed(new SetFrontClimber(FrontClimber.FrontClimberPreset.HOME));
     //frontClimbGround.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,2));
     frontClimbPassLvl_3.whenPressed(new SetFrontClimber(FrontClimber.FrontClimberPreset.PASS3));
+    frontClimbPassLvl_2.whenPressed(new SetFrontClimber(FrontClimber.FrontClimberPreset.PASS2));
 
     // TURRET
     turretFront.whileHeld(new SetTurret(Turret.TurretPreset.FRONT));
