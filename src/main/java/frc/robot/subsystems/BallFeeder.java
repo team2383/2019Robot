@@ -15,6 +15,7 @@ import frc.robot.Constants.*;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 
@@ -23,12 +24,15 @@ public class BallFeeder extends StatefulSubsystem<BallFeeder.State> {
   // here. Call these from Commands.
   
   VictorSPX feedBall = new VictorSPX(RobotMap.FEEDER_BALL_PORT);
+  TalonSRX feedBallExample = new TalonSRX(14);
 
   public void configMotorController(int timeout){
     feedBall.config_kP(0, 0, timeout);
     feedBall.config_kI(0, 0, timeout);
     feedBall.config_kD(0, 0, timeout);
     feedBall.config_kF(0, 0, timeout);
+
+    feedBallExample.configPeakCurrentLimit(30);
 
     feedBall.configMotionAcceleration(4000, timeout);
     feedBall.configMotionCruiseVelocity(4000, timeout);
@@ -68,7 +72,7 @@ public class BallFeeder extends StatefulSubsystem<BallFeeder.State> {
 		switch (state) {
       case FEED:
         //runs at 50%
-        feedBall.set(ControlMode.PercentOutput, 1); //normally 0.8 SoFlo
+        feedBall.set(ControlMode.PercentOutput, 0.8); //normally 0.8 SoFlo
         break;
         case UNFEED:
         //runs at 50%
@@ -80,11 +84,6 @@ public class BallFeeder extends StatefulSubsystem<BallFeeder.State> {
         break;
     }
     }
-
-    
-
-
-
 
   @Override
   public void initDefaultCommand() {
