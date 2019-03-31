@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.HAL;
+import frc.robot.RobotMap;
 import frc.robot.commands.SwitchPipeline;
 import frc.robot.subsystems.Shoulder;
 import frc.robot.subsystems.Wrist;
@@ -14,13 +15,18 @@ public class SnakeLime extends Command {
   public SnakeLime() {
     requires(HAL.limelight);
     requires(HAL.drive);
-    HAL.limelight.setPipeline(6);
+
+    
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    kill = false;
+    if(!RobotMap.vision){
+      HAL.limelight.setPipeline(6);}
+    else{
+      HAL.limelight.setPipeline(8);}
+      RobotMap.vision = !RobotMap.vision;
     
   }
 
@@ -35,11 +41,13 @@ public class SnakeLime extends Command {
     double area = HAL.limelight.area();
     boolean isTarget = HAL.limelight.hasTargets();
     double minArea = 1.3;
-    if(area <= 0.01){
+    /*if(area <= 0.01){
+
+      
       HAL.limelight.setPipeline(6);
       area = HAL.limelight.area();
     }
-
+    */
 
     ////////////////////
     // FRONT POSITION //
@@ -106,12 +114,6 @@ public class SnakeLime extends Command {
   @Override
   protected boolean isFinished() {
 
-    if(HAL.limelight.area() > 1.0){    /*(xOffset < 1 && xOffset > -1) &&*/
-      return true;
-    }
-    else if((kill == true) && (HAL.limelight.area() <= 1.0)){
-      return true;
-    }
 
     // if (HAL.limelight.xOffset() > -1 && HAL.limelight.xOffset() > -1 && HAL.limelight.area() > 1.5){
     //   return true;
@@ -122,6 +124,7 @@ public class SnakeLime extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    //HAL.limelight.setPipeline(8);
     // int turCurPos = HAL.turret.getCurrentPosition();
     // HAL.turret.setPosition(turCurPos);
   }
@@ -130,6 +133,7 @@ public class SnakeLime extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    HAL.limelight.setPipeline(8);
+    //HAL.limelight.setPipeline(8);
+    end();
   }
 }

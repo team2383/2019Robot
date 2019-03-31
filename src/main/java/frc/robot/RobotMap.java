@@ -48,6 +48,9 @@ public class RobotMap {
   public final static int SHOULDER_PORT = 11;
   public final static int WRIST_PORT = 12;
   public final static int FEEDER_BALL_PORT = 13;
+
+  //VISION STATUS
+  public static boolean vision = false;
   
 
   

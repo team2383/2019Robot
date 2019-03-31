@@ -24,15 +24,12 @@ public class BallFeeder extends StatefulSubsystem<BallFeeder.State> {
   // here. Call these from Commands.
   
   VictorSPX feedBall = new VictorSPX(RobotMap.FEEDER_BALL_PORT);
-  TalonSRX feedBallExample = new TalonSRX(14);
 
   public void configMotorController(int timeout){
     feedBall.config_kP(0, 0, timeout);
     feedBall.config_kI(0, 0, timeout);
     feedBall.config_kD(0, 0, timeout);
     feedBall.config_kF(0, 0, timeout);
-
-    feedBallExample.configPeakCurrentLimit(30);
 
     feedBall.configMotionAcceleration(4000, timeout);
     feedBall.configMotionCruiseVelocity(4000, timeout);
