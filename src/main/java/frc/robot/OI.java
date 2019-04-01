@@ -15,6 +15,7 @@ import frc.robot.subsystems.*;
 import frc.robot.ninjaLib.CustomButton;
 import frc.robot.ninjaLib.ButtonBoard;
 import frc.robot.ninjaLib.ButtonBoard.Direction;
+import frc.robot.commands.TurretAlignLime;
   
 import frc.robot.HAL;
 import static frc.robot.HAL.ballFeed;
@@ -38,23 +39,11 @@ public class OI {
   public static Button ballFeedIn = new JoystickButton(driver,Gamepad.BUTTON_SHOULDER_RIGHT);
   public static Button ballFeedOut = new JoystickButton(driver,Gamepad.BUTTON_SHOULDER_LEFT);
 
-  // GROUND HATCH INTAKE
-  public static Button groundHatchFeedIn = new JoystickButton(driver, Gamepad.BUTTON_A);
-  public static Button groundHatchFeedOut = new JoystickButton(driver, Gamepad.BUTTON_B);
-
   // VISION
   public static Button visionLow = new JoystickButton(driver, Gamepad.BUTTON_X);
-  public static Button visionMidHigh = new JoystickButton(driver, Gamepad.BUTTON_Y);
+ // public static Button visionMidHigh = new JoystickButton(driver, Gamepad.BUTTON_Y);
 
-  //public static Button switchPipeline = new JoystickButton(driver, Gamepad.BUTTON_X);
-  //public static Button trackPipeline = new JoystickButton(driver, Gamepad.BUTTON_Y);
-  //public static Button drivePipeline = new JoystickButton(driver, Gamepad.BUTTON_X);
-  //public static Button visionFoward = new JoystickButton(driver, Gamepad.BUTTON_A);
-  //public static Button turretAllign = new JoystickButton(driver, Gamepad.BUTTON_B);
-  //public static Button travel = new JoystickButton(driver,Gamepad.BUTTON_X);
-  //public static Button driveAllign = new JoystickButton(vision, Gamepad.BUTTON_X);
-  //public static Button tracking = new JoystickButton(driver, Gamepad.BUTTON_Y);
-
+  public static Button turretLime = new JoystickButton(driver, Gamepad.BUTTON_Y);
   
   /////////////////
   // BUTTONBOARD //
@@ -62,41 +51,6 @@ public class OI {
 
   public static ButtonBoard buttonBoardA = new ButtonBoard(1);
   public static ButtonBoard buttonBoardB = new ButtonBoard(2);
-
-  
-
-  ////////////////////////////
-  // OLD LAMBDA BUTTONBOARD //
-  ////////////////////////////
-  
-  // Button ballFeedGround = new JoystickButton(buttonBoardA, 4);
-
-  // Button hatchFeederStation = new JoystickButton(buttonBoardB, 5);
-  // Button ballFeederStation = new JoystickButton(buttonBoardB, 6);
-
-  // Button lowBallRocket = new JoystickButton(buttonBoardA, 1);
-  // Button midBallRocket = new JoystickButton(buttonBoardA, 2);
-  // Button highBallRocket = new JoystickButton(buttonBoardA, 3);
-
-  // Button lowHatchRocket = new JoystickButton(buttonBoardB, 2);
-  // Button midHatchRocket = new JoystickButton(buttonBoardB, 3);
-  // Button highHatchRocket = new JoystickButton(buttonBoardB, 4);
-  
-  // Button travelPosition = new JoystickButton(buttonBoardB, 1);
-  // Button hatchGrab = new JoystickButton(buttonBoardA,5);
-  // Button hatchRelease = new JoystickButton(buttonBoardA, 6);
-
-  // Button turretFront = new JoystickButton(buttonBoardA, 8);
-  // Button turretBack = new JoystickButton(buttonBoardA, 9);
-
-  // Button frontClimbHome = new JoystickButton(buttonBoardB, 7);
-  // Button frontClimbPass = new JoystickButton(buttonBoardB,8);
-  // Button frontClimbGround = new JoystickButton(buttonBoardB, 9);
-
-  // Button cargoshipBall = new JoystickButton(buttonBoardA, 7);
-  // Button climbAuto = new JoystickButton(buttonBoardA, 10);
-
-  // Button transfer = new JoystickButton(buttonBoardB, 10);
       
   //////////////////////////////
   // NEW SCORPION BUTTONBOARD //
@@ -217,9 +171,6 @@ public class OI {
     ballFeedIn.whileHeld(ballFeed.setStateCommand(BallFeeder.State.FEED,BallFeeder.State.STOP, false));
     ballFeedOut.whileHeld(ballFeed.setStateCommand(BallFeeder.State.UNFEED,BallFeeder.State.STOP, false));
 
-    groundHatchFeedIn.whileHeld(hatchGroundIntake.setStateCommand(HatchGroundIntake.State.FEED, HatchGroundIntake.State.STOP, false));
-    groundHatchFeedOut.whileHeld(hatchGroundIntake.setStateCommand(HatchGroundIntake.State.UNFEED, HatchGroundIntake.State.STOP, false));
-
     hatchGrab.whileHeld(HAL.hatch.setStateCommand(HatchPatchSubsystem.State.OUT));
     hatchRelease.whileHeld(HAL.hatch.setStateCommand(HatchPatchSubsystem.State.IN));
 
@@ -296,8 +247,9 @@ public class OI {
     // VISION
     visionLow.whileHeld(new SnakeLime());
 
-    visionMidHigh.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
-    visionMidHigh.whileHeld(new VisionAgainstRocket());
+    turretLime.whenPressed(new TurretAlignLime());
+    // visionMidHigh.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
+    // visionMidHigh.whileHeld(new VisionAgainstRocket());
     
     visionTurret.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
     visionTurret.whileHeld(new TurretAlignLime());

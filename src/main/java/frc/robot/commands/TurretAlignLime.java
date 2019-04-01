@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.HAL;
 
 public class TurretAlignLime extends Command {
-  private static final double kP = 0.7;
+  private static final double kP = 0.2;
  
   public TurretAlignLime() {
     requires(HAL.turret);
@@ -23,7 +23,8 @@ public class TurretAlignLime extends Command {
 
   @Override
   protected void execute() {
-    double power = kP * (HAL.limelight.xOffset()/27);
+    double xOffset = HAL.limelight.xOffset();
+    double power = kP * (xOffset/27);
     HAL.turret.setSpeed(power);
   }
 
