@@ -12,7 +12,6 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import frc.robot.Encoder;
 import frc.robot.HAL;
 import frc.robot.OI;
 import frc.robot.RobotMap;
@@ -33,8 +32,6 @@ public class Drivetrain extends Subsystem {
   public Drivetrain (){
     rightSlave.follow(rightMaster);
     leftSlave.follow(leftMaster);
-    Encoder.getPosition(rightMaster);
-    Encoder.getPosition(leftMaster);
     drive = new DifferentialDrive(leftMaster, rightMaster);
 
     drive.setSafetyEnabled(false);
@@ -42,22 +39,6 @@ public class Drivetrain extends Subsystem {
 
   public void arcade(double move, double turn){
     drive.arcadeDrive(move, turn);
-  }
-
-  public double getRightPosition() {
-    return Encoder.getPosition(rightMaster);
-  }
-
-  public double getLeftPosition(){
-    return Encoder.getPosition(leftMaster);
-  }
-
-  public double getRightVelocity(){
-    return Encoder.getVelocity(rightMaster);
-  }
-
-  public double getLeftVelocity(){
-    return Encoder.getVelocity(leftMaster);
   }
 
   public void setBrake(boolean brake) {
