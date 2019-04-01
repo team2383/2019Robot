@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.Constants;
-import frc.robot.Encoder;
 import frc.robot.OI;
 import frc.robot.Constants.*;
 import frc.robot.commands.*;
