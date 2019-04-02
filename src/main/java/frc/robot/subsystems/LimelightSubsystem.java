@@ -57,6 +57,11 @@ public class LimelightSubsystem extends Subsystem {
     return get("tvert");
   }
 
+  public double camtran()
+  {
+    return get("camtran");
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

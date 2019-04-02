@@ -40,7 +40,7 @@ public class ValueLogger extends Command {
     pathTable.putDouble("feed", HAL.wrist.getCurrentPosition());
     pathTable.putDouble("turret", HAL.turret.getCurrentPosition());
     pathTable.putDouble("elevator", HAL.elevator.getCurrentPosition());
-    
+    pathTable.putDouble("camtran", HAL.limelight.camtran());
   }
 
   // Make this return true when this Command no longer needs to run execute()
