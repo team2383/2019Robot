@@ -35,7 +35,7 @@ public class DriveCommand extends Command {
   protected void execute() {
     
 
-    HAL.drive.arcade(throttle.getAsDouble()*0.8,turn.getAsDouble()*0.8);
+    HAL.drive.arcade(throttle.getAsDouble()/**0.8*/,turn.getAsDouble()/**0.8*/);
     
   }
 
