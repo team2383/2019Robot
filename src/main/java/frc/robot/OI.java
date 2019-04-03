@@ -7,16 +7,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import java.util.function.DoubleSupplier;
 
-import frc.robot.commands.SetFrontClimber;
-
 import frc.robot.commands.*;
 import frc.robot.ninjaLib.Gamepad;
 import frc.robot.subsystems.*;
 import frc.robot.ninjaLib.CustomButton;
 import frc.robot.ninjaLib.ButtonBoard;
 import frc.robot.ninjaLib.ButtonBoard.Direction;
-import frc.robot.commands.TurretAlignLime;
-  
 import frc.robot.HAL;
 import static frc.robot.HAL.ballFeed;
 import static frc.robot.HAL.hatchGroundIntake;
@@ -32,8 +28,8 @@ public class OI {
   public static Gamepad vision = new Gamepad(4);
   
   // DRIVE
-  public static DoubleSupplier turn = () -> (0.7 * -driver.getRightX());
-  public static DoubleSupplier throttle = () -> (0.9 * driver.getLeftY());
+  public static DoubleSupplier turn = () -> (-driver.getRightX()); //was .7
+  public static DoubleSupplier throttle = () -> (driver.getLeftY()); //was .9
 
   // BALL INTAKE
   public static Button ballFeedIn = new JoystickButton(driver,Gamepad.BUTTON_SHOULDER_RIGHT);
@@ -44,6 +40,7 @@ public class OI {
  // public static Button visionMidHigh = new JoystickButton(driver, Gamepad.BUTTON_Y);
 
   public static Button turretLime = new JoystickButton(driver, Gamepad.BUTTON_Y);
+  public static Button switchVision = new JoystickButton(driver, Gamepad.BUTTON_B);
   
   /////////////////
   // BUTTONBOARD //
@@ -247,7 +244,10 @@ public class OI {
     // VISION
     visionLow.whileHeld(new SnakeLime());
 
-    turretLime.whenPressed(new TurretAlignLime());
+    turretLime.whileHeld(new TurretAlignLime());
+    turretLime.whileHeld(new SwitchPipeline(6));
+    switchVision.whenPressed(new SwitchPipeline(8));
+
     // visionMidHigh.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
     // visionMidHigh.whileHeld(new VisionAgainstRocket());
     

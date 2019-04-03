@@ -9,9 +9,10 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.HAL;
+import frc.robot.subsystems.LimelightSubsystem;
 
 public class TurretAlignLime extends Command {
-  private static final double kP = 0.2;
+  private static final double kP = 1;
  
   public TurretAlignLime() {
     requires(HAL.turret);
@@ -24,8 +25,17 @@ public class TurretAlignLime extends Command {
   @Override
   protected void execute() {
     double xOffset = HAL.limelight.xOffset();
-    double power = kP * (xOffset/27);
-    HAL.turret.setSpeed(power);
+    double power = kP * ((xOffset - 7)/27);
+    double nopower = 0;
+    if (HAL.limelight.hasTargets())
+    {
+      HAL.turret.setSpeed(power);
+    }
+    else
+    {
+      HAL.turret.setSpeed(nopower);
+    }
+
   }
 
   @Override
