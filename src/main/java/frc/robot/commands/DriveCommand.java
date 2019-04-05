@@ -26,7 +26,7 @@ public class DriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    HAL.drive.arcade(throttle.getAsDouble()*.9,turn.getAsDouble()*0.6);
+    HAL.drive.arcade(throttle.getAsDouble()*.9,turn.getAsDouble()*0.7);
   }
 
   // Make this return true when this Command no longer needs to run execute()

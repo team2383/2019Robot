@@ -1,4 +1,4 @@
-package frc.robot.ninjaLib;
+	package frc.robot.ninjaLib;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -25,8 +25,8 @@ public class Gamepad extends Joystick {
 	public static final int BUTTON_SHOULDER_RIGHT = 6;
 	public static final int BUTTON_TRIGGER_LEFT = 7;
 	public static final int BUTTON_TRIGGER_RIGHT = 8;
-	public static final int BUTTON_BACK = 7;
-	public static final int BUTTON_START = 8;
+	//public static final int BUTTON_BACK = 7;
+	//public static final int BUTTON_START = 8;	
 	public static final int BUTTON_LEFT_STICK = 9;
 	public static final int BUTTON_RIGHT_STICK = 10;
 
@@ -154,13 +154,13 @@ public class Gamepad extends Joystick {
 	 *
 	 * @return the state of the Start button
 	 */
-	public JoystickButton getStartButton() {
-		return new JoystickButton(this, BUTTON_START);
-	}
+	// public JoystickButton getStartButton() {
+	// 	return new JoystickButton(this, BUTTON_START);
+	// }
 
-	public JoystickButton getBackButton() {
-		return new JoystickButton(this, BUTTON_BACK);
-	}
+	// public JoystickButton getBackButton() {
+	// 	return new JoystickButton(this, BUTTON_BACK);
+	// }
 
 	/**
 	 * Gets the state of the left shoulder
@@ -188,11 +188,15 @@ public class Gamepad extends Joystick {
 		return new JoystickButton(this, BUTTON_RIGHT_STICK);
 	}
 
-	public boolean getLeftTriggerClick() {
-		 return getRawAxis(AXIS_SHOULDER_L) > 0.7;
+	public JoystickButton rightTrigger(){
+		return new JoystickButton(this, BUTTON_TRIGGER_RIGHT);
 	}
 
-	public boolean getRightTriggerClick() {
-		return getRawAxis(AXIS_SHOULDER_R) > 0.7;
-	}
+	// public boolean getLeftTriggerClick() {
+	// 	 return getRawAxis(AXIS_SHOULDER_L) > 0.7;
+	// }
+
+	// public boolean getRightTriggerClick() {
+	// 	return getRawAxis(AXIS_SHOULDER_R) > 0.7;
+	// }
 }

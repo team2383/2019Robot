@@ -51,5 +51,6 @@ public class TurretAlignLime extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    //HAL.limelight.setPipeline(8);
   }
 }

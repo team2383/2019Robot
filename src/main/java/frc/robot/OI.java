@@ -11,6 +11,7 @@ import frc.robot.commands.*;
 import frc.robot.ninjaLib.Gamepad;
 import frc.robot.subsystems.*;
 import frc.robot.ninjaLib.CustomButton;
+import frc.robot.ninjaLib.AxisButton;
 import frc.robot.ninjaLib.ButtonBoard;
 import frc.robot.ninjaLib.ButtonBoard.Direction;
 import frc.robot.HAL;
@@ -40,8 +41,11 @@ public class OI {
  // public static Button visionMidHigh = new JoystickButton(driver, Gamepad.BUTTON_Y);
 
   public static Button turretLime = new JoystickButton(driver, Gamepad.BUTTON_Y);
+  public static DoubleSupplier turretLime7 = () -> (driver.getRightTrigger());
+  //public static Button turretLime4 = new AxisButton(driver, 1);
   public static Button switchVision = new JoystickButton(driver, Gamepad.BUTTON_B);
   
+
   /////////////////
   // BUTTONBOARD //
   /////////////////
@@ -245,7 +249,21 @@ public class OI {
     visionLow.whileHeld(new SnakeLime());
 
     turretLime.whileHeld(new TurretAlignLime());
+
     turretLime.whileHeld(new SwitchPipeline(6));
+    turretLime.whenReleased(new SwitchPipeline(8));
+
+    // turretLime3.whileHeld(new TurretAlignLime());
+    // turretLime3.whileHeld(new SwitchPipeline(6));
+    // turretLime3.whenReleased(new SwitchPipeline(8));
+    if (driver.getRightTrigger() > 0.5){
+      new TurretAlignLime();
+      new SwitchPipeline(6);
+    }
+    else {
+      new SwitchPipeline(8);
+    }
+
     switchVision.whenPressed(new SwitchPipeline(8));
 
     // visionMidHigh.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
