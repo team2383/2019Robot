@@ -74,6 +74,8 @@ public class Elevator extends Subsystem {
     // ROCKET_MID_BALL(-13446+100),
     // ROCKET_HIGH_BALL(-18100+125),
 
+    // VISION_TRAVEL(-4300),
+
     // HATCH_GROUND_2_ELEVATOR_TRANSFER(-50);
 
     public double elevatorPosition;

@@ -28,18 +28,49 @@ public class Wrist extends Subsystem {
     
     // DOWN IS MORE POSITIVE
     // UP IS MORE NEGATIVE
+    // MAX_POS(100),
+    // TRAVEL(1860),
+
+    // PLACE_TRAVEL(1860),
+
+    // GROUND2TRAVEL(1200),
+    // GROUND_BALL(1344+160+180), // was 1840-80-130-150 
+    // GROUND_HATCH(0),
+
+    // FEEDER_STATION_BALL(900-20),
+
+    // FEEDER_STATION_HATCH(772), //was 725 added 475
+    // ROCKET_LOW_HATCH(772), //942
+
+    // ROCKET_MID_HATCH(1600), //975
+    // ROCKET_HIGH_HATCH(1500), //1482
+    
+    // ROCKET_LOW_BALL(1000), //was 1600
+    // ROCKET_MID_BALL(1825),
+    // ROCKET_HIGH_BALL(1650),
+
+
+    // HATCH_GROUND_2_ELEVATOR_TRANSFER(1890),
+    // CARGOSHIP_BALL(1850-20);
+
+    //////////////////////////
+    // NEW PRACTICE PRESETS //
+    //////////////////////////
+
+    // DOWN IS MORE POSITIVE
+    // UP IS MORE NEGATIVE
     MAX_POS(100),
     TRAVEL(1860),
 
     PLACE_TRAVEL(1860),
 
     GROUND2TRAVEL(1200),
-    GROUND_BALL(1344+160+180), // was 1840-80-130-150 
+    GROUND_BALL(1344+160+180-100), // was 1840-80-130-150 
     GROUND_HATCH(0),
 
     FEEDER_STATION_BALL(900-20),
 
-    FEEDER_STATION_HATCH(772), //was 725 added 475
+    FEEDER_STATION_HATCH(772-100+75+80), //was 725 added 475
     ROCKET_LOW_HATCH(772), //942
 
     ROCKET_MID_HATCH(1600), //975
@@ -64,6 +95,8 @@ public class Wrist extends Subsystem {
     // TRAVEL(600),
     // GROUND_BALL(1840), // was 1957
     // GROUND_HATCH(0),
+
+    // GROUND2TRAVEL(1200),
 
     // FEEDER_STATION_BALL(1035+90),
     // FEEDER_STATION_HATCH(1015+105),
