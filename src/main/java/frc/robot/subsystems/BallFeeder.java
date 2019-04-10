@@ -69,11 +69,11 @@ public class BallFeeder extends StatefulSubsystem<BallFeeder.State> {
 		switch (state) {
       case FEED:
         //runs at 50%
-        feedBall.set(ControlMode.PercentOutput, 0.8); //normally 0.8 SoFlo
+        feedBall.set(ControlMode.PercentOutput, 1.0); //normally 0.8 SoFlo
         break;
         case UNFEED:
         //runs at 50%
-        feedBall.set(ControlMode.PercentOutput, -1); //normally -0.5
+        feedBall.set(ControlMode.PercentOutput, -.7); //normally -0.5
         break;  
       default:
       case STOP:

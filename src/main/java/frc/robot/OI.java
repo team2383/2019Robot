@@ -147,7 +147,7 @@ public class OI {
   ////////////////////////////
   // TESTING MANUAL CONTROL //
   ////////////////////////////
-  public static DoubleSupplier turret = () -> -buttonBoardA.getX()/8;
+  public static DoubleSupplier turret = () -> -buttonBoardA.getX()/8;  
   public static DoubleSupplier elevator = () -> buttonBoardA.getY();
 
   public static Joystick turtleFront = new Joystick(4);
@@ -217,8 +217,8 @@ public class OI {
     highBallRocketStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_HIGH_BALL,Shoulder.ShoulderPreset.ROCKET_HIGH_BALL,Elevator.ElevatorPreset.ROCKET_HIGH_BALL));
 
     lowHatchRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_LOW_HATCH,Shoulder.ShoulderPreset.ROCKET_LOW_HATCH,Elevator.ElevatorPreset.ROCKET_LOW_HATCH));
-    midHatchRocketStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_MID_HATCH,Shoulder.ShoulderPreset.ROCKET_MID_HATCH,Elevator.ElevatorPreset.ROCKET_MID_HATCH));
-    highHatchRocketStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_HIGH_HATCH,Shoulder.ShoulderPreset.ROCKET_HIGH_HATCH,Elevator.ElevatorPreset.ROCKET_HIGH_HATCH));
+    midHatchRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_MID_HATCH,Shoulder.ShoulderPreset.ROCKET_MID_HATCH,Elevator.ElevatorPreset.ROCKET_MID_HATCH));
+    highHatchRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_HIGH_HATCH,Shoulder.ShoulderPreset.ROCKET_HIGH_HATCH,Elevator.ElevatorPreset.ROCKET_HIGH_HATCH));
     
     cargoshipHatchStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.FEEDER_STATION_HATCH, Shoulder.ShoulderPreset.FEEDER_STATION_HATCH, Elevator.ElevatorPreset.FEEDER_STATION_HATCH));
     cargoshipBallStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.CARGOSHIP_BALL, Shoulder.ShoulderPreset.CARGOSHIP_BALL, Elevator.ElevatorPreset.CARGOSHIP_BALL));    

@@ -43,8 +43,8 @@ public class Elevator extends Subsystem {
     
     ROCKET_LOW_HATCH(0), //0
 
-    ROCKET_MID_HATCH(-5400), //-12220
-    ROCKET_HIGH_HATCH(-18269), //-18250
+    ROCKET_MID_HATCH(-3878-500), //-12220
+    ROCKET_HIGH_HATCH(-18269+1000), //-18250
 
     ROCKET_LOW_BALL(-50),
     ROCKET_MID_BALL(-6460),

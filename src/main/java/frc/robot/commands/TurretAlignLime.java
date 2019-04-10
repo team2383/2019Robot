@@ -21,11 +21,12 @@ public class TurretAlignLime extends Command {
   @Override
   protected void initialize() {
   }
-
+// MORE NEGATIVE MOVES IT TO THE LEFT
+// MORE POSITIVE MOVES IT TO THE RIGHT
   @Override
   protected void execute() {
     double xOffset = HAL.limelight.xOffset();
-    double power = kP * ((xOffset - 7)/27);
+    double power = kP * ((xOffset - 8.6)/27); //was 7
     double nopower = 0;
     if (HAL.limelight.hasTargets())
     {
