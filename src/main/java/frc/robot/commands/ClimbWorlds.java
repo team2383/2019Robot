@@ -80,15 +80,19 @@ public class ClimbWorlds extends Command {
         double d = new Double(backPos);
 
 		if(backPos < 1300){
-            HAL.backClimber.setSpeed(.7);}
+            HAL.backClimber.setSpeed(0.9);}
 		else{
 			HAL.backClimber.setSpeed(0);}
             
         
-        
 		if(frontPos < 3477){
+            if (frontPosd > 2900){
+                HAL.frontClimber.setSpeed(.4);
+            }
+            else{
             //HAL.frontClimber.setPosition((2*backPos) + 931);}
             HAL.frontClimber.setPosition((1.4517*backPosd) + 931.89);}
+            }    
 	    else{
 			HAL.frontClimber.setSpeed(0);}
 	}

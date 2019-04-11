@@ -256,13 +256,6 @@ public class OI {
     // turretLime3.whileHeld(new TurretAlignLime());
     // turretLime3.whileHeld(new SwitchPipeline(6));
     // turretLime3.whenReleased(new SwitchPipeline(8));
-    if (driver.getRightTrigger() > 0.5){
-      new TurretAlignLime();
-      new SwitchPipeline(6);
-    }
-    else {
-      new SwitchPipeline(8);
-    }
 
     switchVision.whenPressed(new SwitchPipeline(8));
 
