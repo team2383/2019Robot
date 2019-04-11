@@ -68,7 +68,7 @@ public class Shoulder extends Subsystem {
       // DOWN IS MORE NEGATIVE
       // UP IS MORE POSITIVE
 
-        GROUND_BALL(80), //was  287
+        GROUND_BALL(80+40), //was  287
         GROUND_HATCH(0),
         TRAVEL(1350),
   
@@ -77,7 +77,7 @@ public class Shoulder extends Subsystem {
         FEEDER_STATION_BALL(1218),
         //FEEDER_STATION_HATCH(218 + 85), //was 1601
       
-        FEEDER_STATION_HATCH(221),
+        FEEDER_STATION_HATCH(221+45),
         ROCKET_LOW_HATCH(323),
 
         ROCKET_MID_HATCH(1273),

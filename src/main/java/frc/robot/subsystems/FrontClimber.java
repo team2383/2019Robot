@@ -70,6 +70,10 @@ public class FrontClimber extends Subsystem{
     return frontClimber.getSelectedSensorPosition(0);
   }
 
+  public double getCurrentPosition_double() {
+    return frontClimber.getSelectedSensorPosition(0);
+  }
+
   public void setSpeed(double speed){
     frontClimber.set(ControlMode.PercentOutput, speed);
   }
@@ -79,6 +83,10 @@ public class FrontClimber extends Subsystem{
   }
 
   public void setPosition(int position){
+    frontClimber.set(ControlMode.MotionMagic, position);
+  }
+
+  public void setPosition(double position){
     frontClimber.set(ControlMode.MotionMagic, position);
   }
 

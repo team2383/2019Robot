@@ -100,6 +100,10 @@ public class BackClimber extends Subsystem {
     return tailMaster.getSelectedSensorPosition(0);
   }
 
+  public double getCurrentPosition_double() {
+    return tailMaster.getSelectedSensorPosition(0);
+  }
+
   public void setZero() {
     tailMaster.setSelectedSensorPosition(0, 0, 10);
   }

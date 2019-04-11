@@ -73,7 +73,7 @@ public class BallFeeder extends StatefulSubsystem<BallFeeder.State> {
         break;
         case UNFEED:
         //runs at 50%
-        feedBall.set(ControlMode.PercentOutput, -.7); //normally -0.5
+        feedBall.set(ControlMode.PercentOutput, -1.0); //normally -0.5
         break;  
       default:
       case STOP:

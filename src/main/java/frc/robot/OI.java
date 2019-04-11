@@ -29,8 +29,8 @@ public class OI {
   public static Gamepad vision = new Gamepad(4);
   
   // DRIVE
-  public static DoubleSupplier turn = () -> (-driver.getRightX()); //was .7
-  public static DoubleSupplier throttle = () -> (driver.getLeftY()); //was .9
+  public static DoubleSupplier turn = () -> (-driver.getRightX()*.9); //was .7
+  public static DoubleSupplier throttle = () -> (driver.getLeftY()*.971); //was .9
 
   // BALL INTAKE
   public static Button ballFeedIn = new JoystickButton(driver,Gamepad.BUTTON_SHOULDER_RIGHT);
@@ -213,8 +213,8 @@ public class OI {
     // ROCKET & CARGO SHIP STAGGERED //
     ///////////////////////////////////
     lowBallRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_LOW_BALL,Shoulder.ShoulderPreset.ROCKET_LOW_BALL,Elevator.ElevatorPreset.ROCKET_LOW_BALL));
-    midBallRocketStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_MID_BALL,Shoulder.ShoulderPreset.ROCKET_MID_BALL,Elevator.ElevatorPreset.ROCKET_MID_BALL));
-    highBallRocketStag.whenPressed(new Staggered_E_S_W(Wrist.WristPreset.ROCKET_HIGH_BALL,Shoulder.ShoulderPreset.ROCKET_HIGH_BALL,Elevator.ElevatorPreset.ROCKET_HIGH_BALL));
+    midBallRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_MID_BALL,Shoulder.ShoulderPreset.ROCKET_MID_BALL,Elevator.ElevatorPreset.ROCKET_MID_BALL));
+    highBallRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_HIGH_BALL,Shoulder.ShoulderPreset.ROCKET_HIGH_BALL,Elevator.ElevatorPreset.ROCKET_HIGH_BALL));
 
     lowHatchRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_LOW_HATCH,Shoulder.ShoulderPreset.ROCKET_LOW_HATCH,Elevator.ElevatorPreset.ROCKET_LOW_HATCH));
     midHatchRocketStag.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.ROCKET_MID_HATCH,Shoulder.ShoulderPreset.ROCKET_MID_HATCH,Elevator.ElevatorPreset.ROCKET_MID_HATCH));
@@ -241,7 +241,7 @@ public class OI {
     // FRONT CLIMBER
     turretZero.whenPressed(new Zeros("turret"));
     //hatchToElevatorTransfer.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Shoulder.ShoulderPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Elevator.ElevatorPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER));
-    climbAutoLvl_3.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,3));
+    climbAutoLvl_3.whenPressed(new ClimbWorlds(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,3));
     climbAutoLvl_2.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,2));
     climbStop.whenPressed(new StopClimb());
 
