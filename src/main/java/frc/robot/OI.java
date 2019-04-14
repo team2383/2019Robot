@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 
 import java.util.function.DoubleSupplier;
 
@@ -240,7 +241,8 @@ public class OI {
     
     // FRONT CLIMBER
     turretZero.whenPressed(new Zeros("turret"));
-    //hatchToElevatorTransfer.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Shoulder.ShoulderPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Elevator.ElevatorPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER));
+    //hatchToElevatorTransfer.whenPressed(new
+    // SetElevatorShoulderWrist(Wrist.WristPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Shoulder.ShoulderPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER,Elevator.ElevatorPreset.HATCH_GROUND_2_ELEVATOR_TRANSFER));
     climbAutoLvl_3.whenPressed(new ClimbWorlds(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,3));
     climbAutoLvl_2.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,2));
     climbStop.whenPressed(new StopClimb());

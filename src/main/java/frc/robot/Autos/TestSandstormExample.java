@@ -7,40 +7,33 @@
 
 package frc.robot.Autos;
 
+import frc.robot.ninjaLib.PathLoader;
+import frc.robot.commands.FollowTrajectory;
+
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.HAL;
-
-public class TestSandstormExample extends Command {
-  public TestSandstormExample() {
-    requires(HAL.drive);
-    requires(HAL.elevator);
-    requires(HAL.shoulder);
-    requires(HAL.wrist);
-  }
-
- 
-  @Override
-  protected void initialize() {
-  }
-
- 
-  @Override
-  protected void execute() {
-  }
-
- 
-  @Override
-  protected boolean isFinished() {
-    return false;
-  }
+import edu.wpi.first.wpilibj.command.CommandGroup;
+import jaci.pathfinder.Pathfinder;
+import jaci.pathfinder.Trajectory;
+import jaci.pathfinder.Waypoint;
 
 
-  @Override
-  protected void end() {
-  }
 
- 
-  @Override
-  protected void interrupted() {
-  }
+public class TestSandstormExample extends CommandGroup {
+  Waypoint[] points = new Waypoint[] {
+    new Waypoint(0, 0, 0),
+    new Waypoint(14, 0, 0)
+    };
+
+Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH,
+    0.02, 	//delta time
+    4.5,		//max velocity in ft/s for the motion profile
+    2.5,		//max acceleration in ft/s/s for the motion profile
+    5.0);	//max jerk in ft/s/s/s for the motion profile
+
+
+Trajectory trajectory = Pathfinder.generate(points, config);
+
+public TestSandstormExample(boolean backwards) {
+  addSequential(new FollowTrajectory(trajectory, backwards));
+}
 }

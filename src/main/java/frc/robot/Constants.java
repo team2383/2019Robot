@@ -33,4 +33,16 @@ public class Constants {
 
 	public static double normalPipeline = 0;
 	public static double snakeLimePipeline = 7;
+
+	//Motion Profiling Constants
+															// units
+	public static double kDrive_Motion_P = 1.4;				// %/ft
+	public static double kDrive_Motion_D = 0.0;				// %/(ft/s)
+	public static double kDrive_Motion_V = 0.058;			// %/(ft/s) max turn speed
+	public static double kDrive_Motion_A = 0.0;	
+	public static double kDrive_Motion_trackwidth = 2.72;
+	public static double kDrive_WheelDiameterInch = 3.875;
+	public static double getWheelCircumference() { 
+		return (kDrive_WheelDiameterInch*Math.PI)/12.0; 
+	};
 }
