@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.Elevator;
+import frc.robot.Autos.*;
 
 
 /**
@@ -27,7 +28,7 @@ public class Robot extends TimedRobot {
 
   public static OI m_oi;
 
-  Command m_autonomousCommand;
+  Command autoCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   /**
@@ -38,6 +39,11 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     
     m_oi = new OI();
+    m_chooser = new SendableChooser<Command>();
+    m_chooser.addObject("Test", new TestSandstormExample(false));
+    m_chooser.addObject("Left Side Rocket Hatch", new LeftSideRocketHatch(false));
+    m_chooser.addObject("Right Side Rocket Hatch", new RightSideRocketHatch(false));
+    m_chooser.addObject("Front Cargo Hatch", new FrontCargoHatch(false));
     m_chooser.setDefaultOption("Default Auto", new DriveCommand(OI.throttle, OI.turn));
     SmartDashboard.putData("Auto mode", m_chooser);
   }
@@ -94,10 +100,14 @@ public class Robot extends TimedRobot {
      */
 
     // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.start();
-    }
+    
     HAL.drive.setBrake(true);
+    autoCommand = m_chooser.getSelected();
+		autoCommand = (Command) m_chooser.getSelected();
+		
+		if (autoCommand != null) {
+			autoCommand.start();
+		}
   }
 
   /**
@@ -115,8 +125,8 @@ public class Robot extends TimedRobot {
     // continue until interrupted by another command, remove
     // this line or comment it out.
 
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
+    if (autoCommand != null) {
+      autoCommand.cancel();
     }
     HAL.drive.setBrake(true);
   }
