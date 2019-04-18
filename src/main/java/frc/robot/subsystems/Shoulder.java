@@ -37,51 +37,21 @@ public class Shoulder extends Subsystem {
       //////////////////
       // COMP PRESETS //
       //////////////////
-      // DOWN IS MORE POSITIVE  FAlse?
-      // UP IS MORE NEGATIVE 
-        // GROUND_BALL(80), //was 3745+180-220-180
-        // GROUND_HATCH(0),
-        // TRAVEL(1218),
-  
-        // PLACE_TRAVEL(1252),
-  
-        // FEEDER_STATION_BALL(1218),
-        // FEEDER_STATION_HATCH(218), //was 1601
-      
-        // ROCKET_LOW_HATCH(218),
-
-        // ROCKET_MID_HATCH(1020),
-        // ROCKET_HIGH_HATCH(1025),
-  
-        // CARGOSHIP_BALL(500),
-  
-        // ROCKET_LOW_BALL(420),
-        // ROCKET_MID_BALL(1135),
-        // ROCKET_HIGH_BALL(1107),
-      
-  
-        //  HATCH_GROUND_2_ELEVATOR_TRANSFER(617);
-      
-      //////////////////////////
-      // NEW PRACTICE PRESETS //
-      //////////////////////////
-      // DOWN IS MORE NEGATIVE
-      // UP IS MORE POSITIVE
-
-        GROUND_BALL(80+40), //was  287
+      // UP IS MORE POSITIVE  
+      // DOWN IS MORE NEGATIVE 
+        GROUND_BALL(80), //was 3745+180-220-180
         GROUND_HATCH(0),
-        TRAVEL(1350),
+        TRAVEL(1218),
   
         PLACE_TRAVEL(1252),
   
         FEEDER_STATION_BALL(1218),
-        //FEEDER_STATION_HATCH(218 + 85), //was 1601
+        FEEDER_STATION_HATCH(278), //was 218
       
-        FEEDER_STATION_HATCH(221+45),
-        ROCKET_LOW_HATCH(323),
+        ROCKET_LOW_HATCH(218),
 
-        ROCKET_MID_HATCH(1273),
-        ROCKET_HIGH_HATCH(1198), //was 1025
+        ROCKET_MID_HATCH(1020),
+        ROCKET_HIGH_HATCH(1025),
   
         CARGOSHIP_BALL(500),
   
@@ -91,6 +61,36 @@ public class Shoulder extends Subsystem {
       
   
          HATCH_GROUND_2_ELEVATOR_TRANSFER(617);
+      
+      //////////////////////////
+      // NEW PRACTICE PRESETS //
+      //////////////////////////
+      // DOWN IS MORE NEGATIVE
+      // UP IS MORE POSITIVE
+
+        // GROUND_BALL(80+40), //was  287
+        // GROUND_HATCH(0),
+        // TRAVEL(1350),
+  
+        // PLACE_TRAVEL(1252),
+  
+        // FEEDER_STATION_BALL(1218),
+        // //FEEDER_STATION_HATCH(218 + 85), //was 1601
+      
+        // FEEDER_STATION_HATCH(221+45),
+        // ROCKET_LOW_HATCH(323),
+
+        // ROCKET_MID_HATCH(1273),
+        // ROCKET_HIGH_HATCH(1198), //was 1025
+  
+        // CARGOSHIP_BALL(500),
+  
+        // ROCKET_LOW_BALL(420),
+        // ROCKET_MID_BALL(1135),
+        // ROCKET_HIGH_BALL(1107),
+      
+  
+        //  HATCH_GROUND_2_ELEVATOR_TRANSFER(617);
 
       ///////////////////////
       // PREACTICE PRESETS //

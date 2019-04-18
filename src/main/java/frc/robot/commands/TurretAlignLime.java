@@ -26,7 +26,7 @@ public class TurretAlignLime extends Command {
   @Override
   protected void execute() {
     double xOffset = HAL.limelight.xOffset();
-    double power = kP * ((xOffset - 8.6)/27); //was 7
+    double power = kP * ((xOffset - 9.2)/27); //was 8.6
     double nopower = 0;
     if (HAL.limelight.hasTargets())
     {

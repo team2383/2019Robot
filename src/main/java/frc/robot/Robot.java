@@ -40,10 +40,11 @@ public class Robot extends TimedRobot {
     
     m_oi = new OI();
     m_chooser = new SendableChooser<Command>();
-    m_chooser.addObject("Test", new TestSandstormExample(false));
-    m_chooser.addObject("Left Side Rocket Hatch", new LeftSideRocketHatch(false));
-    m_chooser.addObject("Right Side Rocket Hatch", new RightSideRocketHatch(false));
-    m_chooser.addObject("Front Cargo Hatch", new FrontCargoHatch(false));
+    //m_chooser.addObject("Test", new TestSandstormExample(false));
+    // m_chooser.addObject("Left Side Rocket Hatch", new LeftSideRocketHatch(false));
+    // m_chooser.addObject("Right Side Rocket Hatch", new RightSideRocketHatch(false));
+    // m_chooser.addObject("Front Cargo Hatch", new FrontCargoHatch(false));
+    m_chooser.addObject("TestSandstormExample", new TestSandstormExample(false));
     m_chooser.setDefaultOption("Default Auto", new DriveCommand(OI.throttle, OI.turn));
     SmartDashboard.putData("Auto mode", m_chooser);
   }

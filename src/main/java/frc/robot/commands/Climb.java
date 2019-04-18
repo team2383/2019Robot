@@ -33,62 +33,62 @@ public class Climb extends Command {
 	// COMPETITION CLIMB //
 	///////////////////////
 	
-	// protected void execute() {
-	// 	if(level == 3){
-	// 		if(HAL.backClimber.getCurrentPosition() < 1250){
-	// 			HAL.backClimber.setSpeed(0.8);
-	// 			}
-	// 			else{
-	// 				HAL.backClimber.setSpeed(0);
+	protected void execute() {
+		if(level == 3){
+			if(HAL.backClimber.getCurrentPosition() < 1250){
+				HAL.backClimber.setSpeed(0.8);
+				}
+				else{
+					HAL.backClimber.setSpeed(0);
 					
-	// 			}
-	// 			if(HAL.frontClimber.getCurrentPosition() < 3420){
-	// 				HAL.frontClimber.setSpeed(0.57);
-	// 				}
-	// 				else{
-	// 					HAL.frontClimber.setSpeed(0);
+				}
+				if(HAL.frontClimber.getCurrentPosition() < 3420){
+					HAL.frontClimber.setSpeed(0.57);
+					}
+					else{
+						HAL.frontClimber.setSpeed(0);
 						
-	// 				}
-	// 	}
-	// 	else{
-	// 		if(HAL.backClimber.getCurrentPosition() < 2186){
-	// 			HAL.backClimber.setSpeed(0.8);
-	// 			}
-	// 			else{
-	// 				HAL.backClimber.setSpeed(0);
+					}
+		}
+		else{
+			if(HAL.backClimber.getCurrentPosition() < 2186){
+				HAL.backClimber.setSpeed(0.8);
+				}
+				else{
+					HAL.backClimber.setSpeed(0);
 					
-	// 			}
-	// 			if(HAL.frontClimber.getCurrentPosition() < 3420){
-	// 				HAL.frontClimber.setSpeed(0.57);
-	// 				}
-	// 				else{
-	// 					HAL.frontClimber.setSpeed(0);
+				}
+				if(HAL.frontClimber.getCurrentPosition() < 3420){
+					HAL.frontClimber.setSpeed(0.47);
+					}
+					else{
+						HAL.frontClimber.setSpeed(0);
 						
-	// 				}
-	// 	}
+					}
+		}
 	
-	// }
+	}
 
 ////////////////////
 // PRACTICE CLIMB //
 ////////////////////
-	protected void execute() {
+	// protected void execute() {
 		
-		if(HAL.backClimber.getCurrentPosition() < 1300){
-			HAL.backClimber.setSpeed(1); 
-			}
-			else{
-				HAL.backClimber.setSpeed(0);
+	// 	if(HAL.backClimber.getCurrentPosition() < 1300){
+	// 		HAL.backClimber.setSpeed(1); 
+	// 		}
+	// 		else{
+	// 			HAL.backClimber.setSpeed(0);
 				
-			}
-			if(HAL.frontClimber.getCurrentPosition() < 3477){
-				HAL.frontClimber.setSpeed(0.3);
-				}
-				else{
-					HAL.frontClimber.setSpeed(0);
+	// 		}
+	// 		if(HAL.frontClimber.getCurrentPosition() < 3477){
+	// 			HAL.frontClimber.setSpeed(0.3);
+	// 			}
+	// 			else{
+	// 				HAL.frontClimber.setSpeed(0);
 					
-				}
-	}
+	// 			}
+	// }
 
 	
     // Make this return true when this Command no longer needs to run execute()
