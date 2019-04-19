@@ -46,12 +46,11 @@ public class Shoulder extends Subsystem {
         PLACE_TRAVEL(1252),
   
         FEEDER_STATION_BALL(1218),
-        FEEDER_STATION_HATCH(278), //was 218
+        FEEDER_STATION_HATCH(260), //was 278
       
-        ROCKET_LOW_HATCH(218),
-
-        ROCKET_MID_HATCH(1020),
-        ROCKET_HIGH_HATCH(1025),
+        ROCKET_LOW_HATCH(238),
+        ROCKET_MID_HATCH(1070),
+        ROCKET_HIGH_HATCH(1055),
   
         CARGOSHIP_BALL(500),
   
@@ -59,7 +58,6 @@ public class Shoulder extends Subsystem {
         ROCKET_MID_BALL(1135),
         ROCKET_HIGH_BALL(1107),
       
-  
          HATCH_GROUND_2_ELEVATOR_TRANSFER(617);
       
       //////////////////////////
@@ -185,7 +183,9 @@ public class Shoulder extends Subsystem {
     shoulder.set(ControlMode.MotionMagic, position.shoulderPosition);
     //shoulder.set(ControlMode.MotionMagic, position.shoulderPosition + hatchAdj, DemandType.ArbitraryFeedForward, gravity);
   }
-
+  public void setPosition(double pos){
+    shoulder.set(ControlMode.MotionMagic, pos);
+  }
   public void setSpeed(double speed){
     shoulder.set(ControlMode.PercentOutput, speed);
   }

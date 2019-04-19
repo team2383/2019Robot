@@ -9,48 +9,41 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.HAL;
-import frc.robot.subsystems.LimelightSubsystem;
 
-public class TurretAlignLime extends Command {
-  private static final double kP = 1;
-  int height; 
-  public TurretAlignLime(int height) {
-    this.height = height;
-    requires(HAL.turret);
+public class ShoulderNudge extends Command {
+  boolean direction;
+  //up true
+  //down false
+  public ShoulderNudge(boolean direction) {
+    requires(HAL.shoulder);
+    this.direction = direction;
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
-  
+
+  // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-  }
-// MORE NEGATIVE MOVES IT TO THE LEFT
-// MORE POSITIVE MOVES IT TO THE RIGHT
-  @Override
-  protected void execute() {
-    double power;
-    double xOffset = HAL.limelight.xOffset();
-    if(height == 1){
-    power = kP * ((xOffset - 8.6)/27); //was 8.6
+    if(direction){
+      HAL.shoulder.setPosition(HAL.shoulder.getCurrentPosition()+10);
     }
     else{
-    power = kP * ((xOffset - 13)/27); //was 8.6
+      HAL.shoulder.setPosition(HAL.shoulder.getCurrentPosition()-10);
     }
-    double nopower = 0;
-    if (HAL.limelight.hasTargets())
-    {
-      HAL.turret.setSpeed(power);
-    }
-    else
-    {
-      HAL.turret.setSpeed(nopower);
-    }
-
   }
 
+  // Called repeatedly when this Command is scheduled to run
+  @Override
+  protected void execute() {
+  }
+
+  // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
     return false;
   }
 
+  // Called once after isFinished returns true
   @Override
   protected void end() {
   }
@@ -59,6 +52,5 @@ public class TurretAlignLime extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    //HAL.limelight.setPipeline(8);
   }
 }

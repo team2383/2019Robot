@@ -30,7 +30,7 @@ public class OI {
   public static Gamepad vision = new Gamepad(4);
   
   // DRIVE
-  public static DoubleSupplier turn = () -> (-driver.getRightX()*.9); //was .7
+  public static DoubleSupplier turn = () -> (-driver.getRightX()*.8); //was .7
   public static DoubleSupplier throttle = () -> (driver.getLeftY()*.971); //was .9
 
   // BALL INTAKE
@@ -38,8 +38,8 @@ public class OI {
   public static Button ballFeedOut = new JoystickButton(driver,Gamepad.BUTTON_SHOULDER_LEFT);
 
   // VISION
-  public static Button visionLow = new JoystickButton(driver, Gamepad.BUTTON_X);
- // public static Button visionMidHigh = new JoystickButton(driver, Gamepad.BUTTON_Y);
+  public static Button highLime = new JoystickButton(driver, Gamepad.BUTTON_X);
+  //public static Button shoulderDown = new JoystickButton(driver, Gamepad.BUTTON_A);
 
   public static Button turretLime = new JoystickButton(driver, Gamepad.BUTTON_Y);
   public static DoubleSupplier turretLime7 = () -> (driver.getRightTrigger());
@@ -250,13 +250,16 @@ public class OI {
     climbAutoLvl_2.whenPressed(new Climb(FrontClimber.FrontClimberPreset.AUTO_CLIMB,BackClimber.BackClimberPreset.AUTO_CLIMB,2));
     climbStop.whenPressed(new StopClimb());
 
-    // VISION
-    visionLow.whileHeld(new SnakeLime());
+    // ShoulderNudges
+    //shoulderUp.whenPressed(new ShoulderNudge(true));
+    //shoulderDown.whenPressed(new ShoulderNudge(false));
 
-    turretLime.whileHeld(new TurretAlignLime());
-
+    turretLime.whileHeld(new TurretAlignLime(1));
+    highLime.whileHeld(new TurretAlignLime(2));
     turretLime.whileHeld(new SwitchPipeline(6));
     turretLime.whenReleased(new SwitchPipeline(8));
+    highLime.whileHeld(new SwitchPipeline(6));
+    highLime.whenReleased(new SwitchPipeline(8));
 
     // turretLime3.whileHeld(new TurretAlignLime());
     // turretLime3.whileHeld(new SwitchPipeline(6));
@@ -268,6 +271,6 @@ public class OI {
     // visionMidHigh.whileHeld(new VisionAgainstRocket());
     
     visionTurret.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
-    visionTurret.whileHeld(new TurretAlignLime());
+    visionTurret.whileHeld(new TurretAlignLime(1));
   }
 }

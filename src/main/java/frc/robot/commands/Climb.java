@@ -43,7 +43,7 @@ public class Climb extends Command {
 					
 				}
 				if(HAL.frontClimber.getCurrentPosition() < 3420){
-					HAL.frontClimber.setSpeed(0.57);
+					HAL.frontClimber.setSpeed(0.61);
 					}
 					else{
 						HAL.frontClimber.setSpeed(0);
