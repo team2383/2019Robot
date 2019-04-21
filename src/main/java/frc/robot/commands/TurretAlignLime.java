@@ -29,10 +29,10 @@ public class TurretAlignLime extends Command {
     double power;
     double xOffset = HAL.limelight.xOffset();
     if(height == 1){
-    power = kP * ((xOffset - 8.6)/27); //was 8.6
+    power = kP * ((xOffset - 8.5)/27); //was 8.6
     }
     else{
-    power = kP * ((xOffset - 13)/27); //was 8.6
+    power = kP * ((xOffset - 12.8)/27); //was 13
     }
     double nopower = 0;
     if (HAL.limelight.hasTargets())
