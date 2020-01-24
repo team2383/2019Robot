@@ -28,7 +28,7 @@ public class HoldTurret extends Command {
   protected void execute() {
     double nudge = nudgeJoystick.getAsDouble();
     if (Math.abs(nudge) > 0.05) {
-      HAL.turret.setSpeed(nudge);
+      HAL.turret.setSpeed(nudge * 4);//multiplied by twox2
       holdPos = HAL.turret.getCurrentPosition();
     } else {
       HAL.turret.setPosition(holdPos);

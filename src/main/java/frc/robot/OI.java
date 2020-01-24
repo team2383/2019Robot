@@ -99,9 +99,9 @@ public class OI {
 
   Button turretZero = new JoystickButton(buttonBoardA, 4); //should be A4
   
-    Button anyTurret = new CustomButton(() -> {
-      return turretFront.get() || turretBack.get() || turretRight.get() || turretLeft.get();
-    });
+  Button anyTurret = new CustomButton(() -> {
+    return turretFront.get() || turretBack.get() || turretRight.get() || turretLeft.get();
+  });
 
   ///////////////////
   // BUTONBOARD V1 //
@@ -148,7 +148,7 @@ public class OI {
   ////////////////////////////
   // TESTING MANUAL CONTROL //
   ////////////////////////////
-  public static DoubleSupplier turret = () -> -buttonBoardA.getX()/8;  
+  public static DoubleSupplier turret = () -> -buttonBoardA.getX();//was /8  
   public static DoubleSupplier elevator = () -> buttonBoardA.getY();
 
   public static Joystick turtleFront = new Joystick(4);
@@ -186,6 +186,8 @@ public class OI {
     // COMMANDS //
     //////////////
     zeroTurret.whileHeld(new Zeros("turret"));
+
+    
     
     travelPosition.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL,Shoulder.ShoulderPreset.TRAVEL,Elevator.ElevatorPreset.TRAVEL));    
 
@@ -270,7 +272,7 @@ public class OI {
     // visionMidHigh.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
     // visionMidHigh.whileHeld(new VisionAgainstRocket());
     
-    visionTurret.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
+    //visionTurret.whenPressed(new SetElevatorShoulderWrist(Wrist.WristPreset.TRAVEL, Shoulder.ShoulderPreset.TRAVEL, Elevator.ElevatorPreset.VISION_TRAVEL));
     visionTurret.whileHeld(new TurretAlignLime(1));
   }
 }
